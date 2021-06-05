@@ -15,6 +15,9 @@ app.get("/", (req, res) => {
 app.use(express.json({ extended: false }));
 
 //Route Setup
+app.use("/api/profile", require("./routes/api/profile"));
+app.use("/api/transaction", require("./routes/api/transactions"));
+app.use("/api/auth", require("./routes/api/auth"));
 app.use("/api/users", require("./routes/api/user"));
 
 const PORT = process.env.PORT || 5000;

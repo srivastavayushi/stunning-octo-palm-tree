@@ -6,13 +6,17 @@ const TransactionSchema = new mongoose.Schema({
     trim: true,
     required: [true, "Please add some text"],
   },
+  description: {
+    type: String,
+    required: [true, "Please add some text"],
+  },
   payee: {
-    type: Number,
-    required: [true],
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "user",
   },
   receiver: {
-    type: Number,
-    required: [true],
+    type: mongoose.Schema.Types.ObjectId,
+    required: "user",
   },
   amount: {
     type: Number,
