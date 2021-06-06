@@ -10,11 +10,11 @@ const TransactionSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please add some text"],
   },
-  payee: {
+  user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "user",
   },
-  receiver: {
+  secondUser: {
     type: mongoose.Schema.Types.ObjectId,
     required: "user",
   },

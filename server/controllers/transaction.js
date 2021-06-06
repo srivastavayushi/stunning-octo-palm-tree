@@ -1,18 +1,23 @@
 const Transaction = require("../models/Transaction");
 const User = require("../models/User");
+const checkObjectId = require("../middleware/checkObjectId");
 
 // @desc : Gets all transactions
-// @route : GET /api/transactions
+// @route : GET /api/transactions:id
 // @access: PRIVATE
 
 exports.getTransactions = async (req, res, next) => {
   try {
-    const transactions = await Transaction.find();
+    const user = await User.findById(req.params.id);
+    const transactions = await Transaction.find({ user: user.id });
+    const transactionSecond = await Transaction.find({ secondUser: user.id });
+
+    const allTransactions = transactions.concat(transactionSecond);
 
     res.status(200).json({
       success: true,
-      count: transactions.length,
-      data: transactions,
+      count: allTransactions.length,
+      data: allTransactions,
     });
   } catch (err) {
     res.status(500).json({
@@ -28,17 +33,19 @@ exports.getTransactions = async (req, res, next) => {
 
 exports.addTransaction = async (req, res, next) => {
   try {
-    const { text, amount, description, payee, receiver, createdAt } = req.body;
+    const { text, amount, description, user, secondUser, createdAt } = req.body;
 
-    const payeeFinal = await User.findById(req.user.id);
-    const receiverFinal = await User.findById(req.user.id);
+    const userFinal = await User.findById(req.user.id);
+    const secondUserFinal = await User.findById(req.user.id);
 
-    const transaction = await Transaction.create(req.body);
+    if (userFinal && secondUserFinal) {
+      const transaction = await Transaction.create(req.body);
 
-    res.status(201).json({
-      success: true,
-      data: transaction,
-    });
+      res.status(201).json({
+        success: true,
+        data: transaction,
+      });
+    }
   } catch (err) {
     if (err.name === "ValidationError") {
       const messages = Object.values(err.errors).map((val) => val.message);

@@ -11,9 +11,10 @@ const {
 //   res.send("TRANSACTION ROUTE : PROTECTED ROUTE");
 // });
 
-module.exports = router;
+//module.exports = router;
 
-router.route("/").get(auth, getTransactions).post(auth, addTransaction);
+router.route("/:id").get(auth, getTransactions);
+router.route("/").post(auth, addTransaction);
 router.route("/:id").delete(auth, deleteTransaction);
 
 module.exports = router;
