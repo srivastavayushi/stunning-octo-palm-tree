@@ -1,4 +1,5 @@
 const Transaction = require("../models/Transaction");
+const User = require("../models/User");
 
 // @desc : Gets all transactions
 // @route : GET /api/transactions
@@ -28,6 +29,9 @@ exports.getTransactions = async (req, res, next) => {
 exports.addTransaction = async (req, res, next) => {
   try {
     const { text, amount, description, payee, receiver, createdAt } = req.body;
+
+    const payeeFinal = await User.findById(req.user.id);
+    const receiverFinal = await User.findById(req.user.id);
 
     const transaction = await Transaction.create(req.body);
 

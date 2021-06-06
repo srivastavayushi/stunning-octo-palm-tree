@@ -5,11 +5,14 @@
   "main": "index.js",
   "scripts": {
     "start": "node server",
-    "server": "nodemon server"
+    "server": "nodemon server",
+    "client": "cd .. && cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "ayushi & mansi",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "concurrently": "^6.2.0",
     "config": "^3.3.6",
