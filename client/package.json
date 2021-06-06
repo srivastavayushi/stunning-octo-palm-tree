@@ -1,9 +1,9 @@
 {
-  "name": "notus-react",
+  "name": "college-partner",
   "version": "1.1.0",
-  "description": "Notus React - A free Tailwind CSS and React UI Kit and Admin by Creative Tim.",
-  "repository": "https://github.com/creativetimofficial/notus-react",
-  "license": "MIT",
+  "description": "",
+  "repository": "https://github.com/srivastavayushi/stunning-octo-palm-tree",
+  "license": "",
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.15.3",
     "@popperjs/core": "2.9.1",

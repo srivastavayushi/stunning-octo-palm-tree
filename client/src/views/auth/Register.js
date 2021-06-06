@@ -33,7 +33,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
               <div className="rounded-t mb-0 px-6 py-6">
-                <div className="text-center mb-3">
+                {/* <div className="text-center mb-3">
                   <h6 className="text-blueGray-500 text-sm font-bold">
                     Sign up with
                   </h6>
@@ -62,11 +62,11 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
                     Google
                   </button>
                 </div>
-                <hr className="mt-6 border-b-1 border-blueGray-300" />
+                <hr className="mt-6 border-b-1 border-blueGray-300" /> */}
               </div>
               <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
                 <div className="text-blueGray-400 text-center mb-3 font-bold">
-                  <small>Or sign up with credentials</small>
+                  <small>Sign up with credentials</small>
                 </div>
                 <form className="form" onSubmit={onSubmit}>
                   <div className="relative w-full mb-3">
@@ -130,7 +130,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
                       <span className="ml-2 text-sm font-semibold text-blueGray-600">
                         I agree with the{" "}
                         <a
-                          href="#pablo"
+                          href="#"
                           className="text-lightBlue-500"
                           onClick={(e) => e.preventDefault()}
                         >
@@ -141,12 +141,14 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
                   </div>
 
                   <div className="text-center mt-6">
+                    <Link to="/Index.js">
                     <button
                       className="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
                       type="button"
                     >
                       Create Account
                     </button>
+                    </Link>
                   </div>
                 </form>
               </div>

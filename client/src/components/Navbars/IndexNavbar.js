@@ -16,6 +16,7 @@ export default function Navbar(props) {
               to="/"
               className="text-blueGray-700 text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
             >
+              <i class="fas fa-graduation-cap"></i>
               College Partner
             </Link>
             <button
@@ -38,12 +39,28 @@ export default function Navbar(props) {
               <li className="flex items-center">
                 <IndexDropdown />
               </li>
-              <li className="flex items-center">
+              {/* <li className="flex items-center">
                 <button
                   className="bg-lightBlue-500 text-white active:bg-lightBlue-600 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
                   type="button"
                 >
                   <i className="fas fa-arrow-alt-circle-down"></i> Profile
+                </button>
+              </li> */}
+              <li className="flex items-center">
+                <button
+                  className="bg-lightBlue-500 text-white active:bg-lightBlue-600 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
+                  type="button"
+                >
+                  <i className="fas fa-arrow-alt-circle-down"></i> Sign up
+                </button>
+              </li>
+              <li className="flex items-center">
+                <button
+                  className="bg-lightBlue-500 text-white active:bg-lightBlue-600 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
+                  type="button"
+                >
+                  <i className="fas fa-arrow-alt-circle-down"></i> Log in
                 </button>
               </li>
             </ul>
